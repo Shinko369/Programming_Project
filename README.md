@@ -23,8 +23,10 @@
 - 擊敗所有怪物皆可獲勝。
 - 未擊敗所有怪物或被殺死則輸掉。
 
-  ## 💻 安裝與執行方式
-  ?
+## 💻 安裝與執行方式
+- 複製連結 https://github.com/Shinko369/Programming_Project.git
+- 開啟 Visual Studio 點選左邊的，「Clone a repository」（複製一個儲存庫）
+- 按F5 開始偵錯執行
 
 
 ## 💻 運行畫面截圖
