@@ -24,8 +24,15 @@
 - 未擊敗所有怪物或被殺死則輸掉。
 
   ## 💻 安裝與執行方式
-  
+  ?
 
 
 ## 💻 運行畫面截圖
 ![image](https://github.com/Shinko369/Programming_Project/blob/master/mage%20test.jpg)
+
+
+
+## 分工資訊
+- 闕愷頡 :程式主架構撰寫
+- 黃冠霖 :程式細項編寫
+- 黃冠睿 :簡報
