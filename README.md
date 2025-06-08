@@ -26,4 +26,4 @@
   ## 💻 安裝與執行方式
   
 
-
+![image](https://github.com/Shinko369/Programming_Project/blob/master/mage%20test.jpg)
