@@ -8,21 +8,21 @@ using namespace std;
 Player::Player(string r) : Character("", 0, 0, 0, 0), role(r) {
     
     if (role == "Knight") {
-        name = "ÃM¤h";
+        name = "é¨å£«";
         hp = maxHp = 120;
         mp = maxMp = 10;
         attackPower = 15;
         defense = 10;
     }
     else if (role == "Archer") {
-        name = "¤}½b¤â";
+        name = "å¼“ç®­æ‰‹";
         hp = maxHp = 90;
         mp = maxMp = 10;
         attackPower = 20;
         defense = 5;
     }
     else if (role == "Mage") {
-        name = "ªk®v";
+        name = "æ³•å¸«";
         hp  = maxHp = 70;
         mp = maxMp = 30;
         attackPower = 10;
@@ -37,42 +37,42 @@ void Player::useSkill(Character& target) {
 
 void Player::skillMenu(Character& target) {
     if (role == "Knight") {
-        cout << "1. ´¶³q§ğÀ»\n2. ¬ŞÀ»¡]¤p¶Ë®` + ·w¯t¡^\n3. »W¤O±Ù(§ó¦h¶Ë®`) \n";
+        cout << "1. æ™®é€šæ”»æ“Š\n2. ç›¾æ“Šï¼ˆå°å‚·å®³ + æšˆçœ©ï¼‰\n3. è“„åŠ›æ–¬(æ›´å¤šå‚·å®³) \n";
         int choice;
         cin >> choice;
         if (choice == 2) {
-            cout << name << " ¨Ï¥Î¬ŞÀ»¡I\n";
+            cout << name << " ä½¿ç”¨ç›¾æ“Šï¼\n";
             int dmg = 8;
             target.takeDamage(dmg);
-            cout << "³y¦¨ " << dmg << " ¶Ë®`¡A¼Ä¤H¥i¯à·|³Q·w¯t¡I\n";
+            cout << "é€ æˆ " << dmg << " å‚·å®³ï¼Œæ•µäººå¯èƒ½æœƒè¢«æšˆçœ©ï¼\n";
         }
         if (choice == 3) {
-            cout << name << " ¨Ï¥Î»W¤O±Ù¡I\n";
+            cout << name << " ä½¿ç”¨è“„åŠ›æ–¬ï¼\n";
             int dmg = 10;
             target.takeDamage(dmg);
-            cout << "³y¦¨ " << dmg << " ¶Ë®`\n";
+            cout << "é€ æˆ " << dmg << " å‚·å®³\n";
         }
         else { 
             attack(target);
         }
     }
     else if (role == "Archer") {
-        cout << "1. ´¶³q§ğÀ»\n2. ¶°¤¤®gÀ»¡]1.5­¿¶Ë®`¡^\n3. Âù­«®gÀ»¡]§ğÀ»¨â¦¸¡A¨C¦¸´î¥b¡^\n";
+        cout << "1. æ™®é€šæ”»æ“Š\n2. é›†ä¸­å°„æ“Šï¼ˆ1.5å€å‚·å®³ï¼‰\n3. é›™é‡å°„æ“Šï¼ˆæ”»æ“Šå…©æ¬¡ï¼Œæ¯æ¬¡æ¸›åŠï¼‰\n";
         int choice;
         cin >> choice;
         if (choice == 2) {
             int dmg = static_cast<int>(attackPower * 1.5) - target.getDefense();
             if (dmg < 1) dmg = 1;
             target.takeDamage(dmg);
-            cout << name << " ¨Ï¥Î¶°¤¤®gÀ»³y¦¨ " << dmg << " ¶Ë®`¡I\n";
+            cout << name << " ä½¿ç”¨é›†ä¸­å°„æ“Šé€ æˆ " << dmg << " å‚·å®³ï¼\n";
         }
         else if (choice == 3) {
-            cout << name << " ¨Ï¥ÎÂù­«®gÀ»¡I\n";
+            cout << name << " ä½¿ç”¨é›™é‡å°„æ“Šï¼\n";
             for (int i = 1; i <= 2; ++i) {
                 int dmg = static_cast<int>(attackPower * 0.5) - target.getDefense();
                 if (dmg < 1) dmg = 1;
                 target.takeDamage(dmg);
-                cout << "²Ä " << i << " µo½b³y¦¨ " << dmg << " ¶Ë®`¡I\n";
+                cout << "ç¬¬ " << i << " ç™¼ç®­é€ æˆ " << dmg << " å‚·å®³ï¼\n";
             }
         }
         else {
@@ -80,34 +80,37 @@ void Player::skillMenu(Character& target) {
         }
     }
     else if (role == "Mage") {
-        cout << "1. Å]ªk¼u¡]¯Ó5MP¡^\n2. ¤õ²y³N¡]¯Ó10MP¡^\n3. ªvÂ¡³N¡]¯Ó8MP¡^\n4. ¦^Å]³N¡]¥[5MP¡^\n";
+        cout << "1. é­”æ³•å½ˆï¼ˆè€—5MPï¼‰\n2. ç«çƒè¡“ï¼ˆè€—10MPï¼‰\n3. æ²»ç™’è¡“ï¼ˆè€—8MPï¼‰\n4. å›é­”è¡“ï¼ˆåŠ 5MPï¼‰\n";
         int choice;
         cin >> choice;
         if (choice == 2 && mp >= 10) {
             mp -= 10;
-            int dmg = 25 - target.getDefense();  // §ï¥Î getDefense()
+            int dmg = 25 - target.getDefense();  // æ”¹ç”¨ getDefense()
             if (dmg < 1) dmg = 1;
             target.takeDamage(dmg);
-            cout << name << " ¨Ï¥Î¤õ²y³N³y¦¨ " << dmg << " ¶Ë®`¡I\n";
+            cout << name << " ä½¿ç”¨ç«çƒè¡“é€ æˆ " << dmg << " å‚·å®³ï¼\n";
         }
         else if (choice == 3 && mp >= 8) {
             if (hp == maxHp) {
-                cout << " §Aªº HP ¤w¸g¬Oº¡ªº¡AµLªkªvÂ¡¡I\n";
+                cout << " ä½ çš„ HP å·²ç¶“æ˜¯æ»¿çš„ï¼Œç„¡æ³•æ²»ç™’ï¼\n";
                 return;
             }
             mp -= 8;
             heal(20);
-            cout << name << " ¨Ï¥ÎªvÂ¡³N«ì´_ 20 HP¡I\n";
+            cout << name << " ä½¿ç”¨æ²»ç™’è¡“æ¢å¾© 20 HPï¼\n";
         }
         else if (choice == 4) {
-            if (manaRegenCooldown > 0) {
-                cout << "¦^Å]³NÁÙ¦b§N«o¤¤¡A³Ñ¾l " << manaRegenCooldown << " ¦^¦X¡I\n";
+            if (mp >= maxMp) {
+                cout << "MPå·²æ»¿ï¼Œç„¡æ³•å›é­”ï¼\n";
+            }
+            else if (manaRegenCooldown > 0) {
+                cout << "å›é­”è¡“é‚„åœ¨å†·å»ä¸­ï¼Œå‰©é¤˜ " << manaRegenCooldown << " å›åˆï¼\n";
             }
             else {
                 mp += 5;
-                if (mp > maxMp) mp = maxMp; // ¤£¶W¹L¤W­­
-                manaRegenCooldown = 2; // ³]©w§N«o¬° 2 ¦^¦X
-                cout << name << " ¨Ï¥Î¦^Å]³N¡A«ì´_ 5 MP¡I\n";
+                if (mp > maxMp) mp = maxMp; // ä¸è¶…éä¸Šé™
+                manaRegenCooldown = 2; // è¨­å®šå†·å»ç‚º 2 å›åˆ
+                cout << name << " ä½¿ç”¨å›é­”è¡“ï¼Œæ¢å¾© 5 MPï¼\n";
             }
         }
         else {
@@ -116,10 +119,10 @@ void Player::skillMenu(Character& target) {
                 int dmg = attackPower + 5 - target.getDefense();
                 if (dmg < 1) dmg = 1;
                 target.takeDamage(dmg);
-                cout << name << " ¬I©ñ¡uÅ]ªk¼u¡v³y¦¨ " << dmg << " ÂIÅ]ªk¶Ë®`¡I¡]®ø¯Ó 5 MP¡^\n";
+                cout << name << " æ–½æ”¾ã€Œé­”æ³•å½ˆã€é€ æˆ " << dmg << " é»é­”æ³•å‚·å®³ï¼ï¼ˆæ¶ˆè€— 5 MPï¼‰\n";
             }
             else {
-                cout << name << " MP ¤£¨¬¡A§ï¥Îª«²z§ğÀ»¡I\n";
+                cout << name << " MP ä¸è¶³ï¼Œæ”¹ç”¨ç‰©ç†æ”»æ“Šï¼\n";
                 attack(target);
             }
         }
